@@ -1,42 +1,46 @@
 export const fetchAllFilmsRequest = () => {
     return {type: "FETCH_ALL_FILMS_REQUEST"}
 }
-
+export const fetchAllFilmsFailure = () => {
+    return {type: "FETCH_ALL_FILMS_FAILURE"}
+}
 export const fetchAllFilmsSuccess = (films) => {
-    return {type: "FETCH_ALL_FILMS_SUCCESS", payload: films}
-}
-
-export const fetchAllFilmsFailure = (error) => {
-    return {type: "FETCH_ALL_FILMS_FAILURE", payload: error}
-}
-
-export const fetchPartOfPeopleRequest = () => {
-    return {type: "FETCH_PART_OF_PEOPLE_REQUEST"}
-}
-
-export const fetchPartOfPeopleSuccess = (films) => {
-    return {type: "FETCH_PART_OF_PEOPLE_SUCCESS", payload: films}
-}
-
-export const fetchPartOfPeopleFailure = (error) => {
-    return {type: "FETCH_PART_OF_PEOPLE_FAILURE", payload: error}
-}
-
-export const getData = (swapiService, dispatch, entity, id) => {
-    switch (entity) {
-        case "films":
-            dispatch(fetchAllFilmsRequest());
-            swapiService.getEntity(entity, {id})
-                .then(data=>dispatch(fetchAllFilmsSuccess(data)))
-                .catch(error=>dispatch(fetchAllFilmsFailure(error)));
-            return true;
-        case "people":
-            dispatch(fetchPartOfPeopleRequest());
-            swapiService.getEntity(entity, {id})
-                .then(data=>dispatch(fetchPartOfPeopleSuccess(data)))
-                .catch(error=>dispatch(fetchPartOfPeopleFailure(error)));
-            return true;
-        default:
-            return false;
+    return {
+        type: "FETCH_ALL_FILMS_SUCCESS",
+        payload: films,
     }
-};
+}
+
+export const fetchFilms = (service, dispatch) => {
+    dispatch(fetchAllFilmsRequest());
+    service.getEntity("films")
+        .then((films) => dispatch(fetchAllFilmsSuccess(films)))
+        .catch((error) => dispatch(fetchAllFilmsFailure(error)));
+}
+
+export const fetchEntityRequest = (entity, id) => {
+    return {
+        type: "FETCH_ENTITY_REQUEST",
+        payload: {entity, id}
+    }
+}
+export const fetchEntitySuccess = (entity, id, data) => {
+    return {
+        type: "FETCH_ENTITY_SUCCESS",
+        payload: {entity, id, data}
+    }
+}
+
+export const fetchEntityFailure = (entity, id, error) => {
+    return {
+        type: "FETCH_ENTITY_FAILURE",
+        payload: {entity, id, error}
+    }
+}
+
+export const fetchEntity = (service, dispatch, entity, id) => {
+    dispatch(fetchEntityRequest(entity, id));
+    service.getEntity(entity, {id})
+        .then(data => dispatch(fetchEntitySuccess(entity, id, data)))
+        .catch(error => dispatch(fetchAllFilmsFailure(entity, id, error)));
+}

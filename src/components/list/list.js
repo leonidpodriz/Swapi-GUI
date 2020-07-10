@@ -1,8 +1,11 @@
 import React from "react";
+import {connect} from "react-redux"
+import {fetchEntity} from "../../actions";
 import withSwapiService from "../hoc/with-swapi-service";
-import {Link} from "react-router-dom";
-import SwapiService from "../../services/swapi-service";
-const swapiService = new SwapiService();
+import LoadingIndicator from "../loading-indicator";
+import ErrorBanner from "../error-banner";
+import EntityListItem from "./entity-list-item";
+import EntityLink from "./entity-link";
 
 
 const StringListItem = ({key_, value}) => {
@@ -10,40 +13,6 @@ const StringListItem = ({key_, value}) => {
         <li className="list-group-item"><strong>{key_}</strong>: {value}</li>
     )
 
-}
-
-const EntityLink = ({entity, id, text}) => {
-    return <Link className="badge text-white mr-1 badge-primary" to={"/" + entity + "/" + id}>{text}</Link>
-};
-
-class EntityListItem extends React.Component {
-    state = {
-        text: "Loading...",
-        id: null,
-        entity: null,
-    }
-
-    getDataByParams = () => {
-        const {entity, id=null} = this.props;
-        swapiService.getEntity(entity, {id})
-            .then( data => {
-                this.setState({
-                    text:Object.values(data)[0],
-                    id,
-                    entity,
-                })
-            });
-    }
-
-    componentDidMount() {
-        this.getDataByParams();
-    }
-
-    render() {
-        const {entity, id, text="Loading..."} = this.state;
-
-        return <EntityLink entity={entity} id={id} text={text}/>
-    }
 }
 
 const renderEntityListItems = (value) => {
@@ -63,22 +32,14 @@ const keyNameProcess = (keyName) => {
 
 
 class List extends React.Component {
-    state = {
-        items: [],
-    }
-
-    getDataByParams = () => {
-        const {entity, id=null} = this.props.match.params;
-        this.props.swapiService.getEntity(entity, {id})
-            .then( data => this.setState({items: data}));
-    }
-
     componentDidMount() {
-        this.getDataByParams();
+        this.props.getItems();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps !== this.props) this.getDataByParams();
+        if (this.props.items.length !== prevProps.items.length && this.props.items.length === 0) {
+            this.props.getItems();
+        }
     }
 
     renderItem = ([key, value]) => {
@@ -99,7 +60,11 @@ class List extends React.Component {
     }
 
     render() {
-        const {items} = this.state;
+        let {items, loading, hasError} = this.props;
+
+        if (loading) return <LoadingIndicator />;
+        if (hasError) return <ErrorBanner/>;
+
         const processedItems = Object.entries(items).map(this.renderItem);
 
         return (
@@ -110,4 +75,25 @@ class List extends React.Component {
     }
 }
 
-export default withSwapiService()(List);
+const mapStateToProps = (state, ownProps) => {
+    const {entity, id} = ownProps.match.params;
+    const entityName = [entity, id].join("_");
+    const entityObj = state.entities[entityName] ? state.entities[entityName] : {};
+    const {loading=true, hasError=false, data=[]} = entityObj;
+    return {
+        loading,
+        items: data,
+        hasError,
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    const {swapiService} = ownProps;
+    const {entity, id} = ownProps.match.params;
+
+    return {
+        getItems: () => fetchEntity(swapiService, dispatch, entity, id),
+    }
+}
+
+export default withSwapiService()(connect(mapStateToProps, mapDispatchToProps)(List));

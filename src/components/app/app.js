@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import List from "../list/list";
-import FilmList from "../film-list/film-list";
+import FilmList from "../film-list";
 class App extends React.Component {
     render() {
         return (

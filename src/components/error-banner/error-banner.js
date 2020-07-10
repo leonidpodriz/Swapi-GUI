@@ -13,7 +13,7 @@ const ErrorBanner = ({details}) => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-12 alert alert-danger p-5 my-5 text-center" role="alert">
+                <div className="col-12 alert alert-danger p-5 my-1 text-center" role="alert">
                     <img src={image} alt="" width="100" className="mb-4"/>
                     <h4 className="alert-heading">Some error happened!</h4>
                     <p>Oops... Looks like something went wrong.</p>
