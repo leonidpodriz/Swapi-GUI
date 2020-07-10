@@ -42,5 +42,5 @@ export const fetchEntity = (service, dispatch, entity, id) => {
     dispatch(fetchEntityRequest(entity, id));
     service.getEntity(entity, {id})
         .then(data => dispatch(fetchEntitySuccess(entity, id, data)))
-        .catch(error => dispatch(fetchAllFilmsFailure(entity, id, error)));
+        .catch(error => dispatch(fetchEntityFailure(entity, id, error)));
 }

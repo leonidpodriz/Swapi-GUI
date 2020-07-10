@@ -17,7 +17,7 @@ const StringListItem = ({key_, value}) => {
 
 const renderEntityListItems = (value) => {
     const {entity, id} = value;
-    return <EntityListItem entity={entity} id={id}/>
+    return <EntityListItem key={id} entity={entity} id={id}/>
 }
 
 const renderEntity = (value) => {
@@ -31,7 +31,7 @@ const keyNameProcess = (keyName) => {
 }
 
 
-class List extends React.Component {
+class DetailsList extends React.Component {
     componentDidMount() {
         this.props.getItems();
     }
@@ -56,7 +56,7 @@ class List extends React.Component {
             value = renderEntity(value);
         }
 
-        return <StringListItem value={value} key_={key}/>;
+        return <StringListItem value={value} key={key} key_={key}/>;
     }
 
     render() {
@@ -96,4 +96,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-export default withSwapiService()(connect(mapStateToProps, mapDispatchToProps)(List));
+export default withSwapiService()(connect(mapStateToProps, mapDispatchToProps)(DetailsList));

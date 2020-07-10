@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
-import List from "../list/list";
+import DetailsList from "../details-list";
 import FilmList from "../film-list";
 class App extends React.Component {
     render() {
@@ -13,7 +13,7 @@ class App extends React.Component {
                             <Route path="/" exact>
                                 <FilmList/>
                             </Route>
-                            <Route path="/:entity/:id" component={List}/>
+                            <Route path="/:entity/:id" component={DetailsList}/>
                         </div>
                     </div>
                 </div>
