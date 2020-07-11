@@ -1,15 +1,16 @@
 import React from "react";
+
 import FilmList from "../film-list";
 import ErrorBanner from "../error-banner";
 import LoadingIndicator from "../loading-indicator";
+
 import {fetchFilms} from "../../actions";
 import {compose} from "redux";
-import withSwapiService from "../hoc/with-swapi-service";
 import {connect} from "react-redux";
 
-const prepareToSearch = (value) => {
-    return value.toLowerCase().replace(" ", "")
-}
+import withSwapiService from "../hoc/with-swapi-service";
+
+import {prepareToSearch} from "../../utils";
 
 
 const SortButtons = ({callback, sortTypes, active}) => {
