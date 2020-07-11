@@ -1,17 +1,21 @@
 import React from "react";
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import DetailsList from "../details-list";
-import FilmList from "../film-list";
+import {FilmsPage} from "../pages";
+import Header from "../header";
+
+
 class App extends React.Component {
     render() {
         return (
             <Router>
-                <h1 className="text-center py-5"><Link to="/">Swapi GUI</Link></h1>
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-md-9 col-lg-5">
+                            <Header/>
+
                             <Route path="/" exact>
-                                <FilmList/>
+                                <FilmsPage/>
                             </Route>
                             <Route path="/:entity/:id" component={DetailsList}/>
                         </div>
