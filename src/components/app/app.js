@@ -17,7 +17,7 @@ class App extends React.Component {
                             <Route path="/" exact>
                                 <FilmsPage/>
                             </Route>
-                            <Route path="/:entity/:id" component={DetailsList}/>
+                            <Route path={document.location.pathname + ":entity/:id"} component={DetailsList}/>
                         </div>
                     </div>
                 </div>
