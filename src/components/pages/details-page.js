@@ -4,7 +4,6 @@ import {connect} from "react-redux"
 import {compose} from "redux";
 import {fetchEntity} from "../../actions";
 
-
 import LoadingIndicator from "../loading-indicator";
 import ErrorBanner from "../error-banner";
 import EntityListItem from "../entity-list/entity-list-item";
@@ -85,6 +84,7 @@ const mapStateToProps = (state, ownProps) => {
     const entityName = [entity, id].join("_");
     const entityObj = state.entities[entityName] ? state.entities[entityName] : {};
     const {loading=true, hasError=false, data=[]} = entityObj;
+
     return {
         loading,
         items: data,
