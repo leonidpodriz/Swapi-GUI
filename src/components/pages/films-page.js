@@ -3,6 +3,7 @@ import React from "react";
 import FilmList from "../film-list";
 import ErrorBanner from "../error-banner";
 import LoadingIndicator from "../loading-indicator";
+import SortButtons from "../sort-buttons";
 
 import {fetchFilms} from "../../actions";
 import {compose} from "redux";
@@ -11,22 +12,6 @@ import {connect} from "react-redux";
 import withSwapiService from "../hoc/with-swapi-service";
 
 import {prepareToSearch} from "../../utils";
-
-
-const SortButtons = ({callback, sortTypes, active}) => {
-    return (
-        <div className="btn-group" role="group" aria-label="Basic example">
-            {
-                sortTypes.map((type) => {
-                    const className = "btn btn-outline-secondary " + (type === active ? "active" : "");
-                    return (
-                        <button onClick={() => callback(type)} type="button" data-target="title" className={className}>{type}</button>
-                    )
-                })
-            }
-        </div>
-    )
-}
 
 
 class FilmsPage extends React.Component {
@@ -49,21 +34,7 @@ class FilmsPage extends React.Component {
     }
 
     onSearchValueChange = (event) => {
-        this.setState({searchValue: event.target.value})
-    }
-
-    onSortTypeChange = (type) => {
-        this.setState({sortType: type});
-    }
-
-    applySortType = (films) => {
-        const {sortType} = this.state;
-
-        if (sortType) {
-            return films.sort(this.sortTypes[sortType])
-        }
-
-        return films;
+        this.setState({searchValue: event.target.value});
     }
 
     applySearchValue = (films) => {
@@ -75,13 +46,27 @@ class FilmsPage extends React.Component {
         })
     }
 
+    onSortTypeChange = (type) => {
+        this.setState({sortType: type});
+    }
+
+    applySortType = (films) => {
+        const {sortType} = this.state;
+
+        if (sortType) {
+            return films.sort(this.sortTypes[sortType]);
+        }
+
+        return films;
+    }
+
     getFilmsList() {
         const {loading, data, hasError} = this.props.films;
 
         if (hasError) return <ErrorBanner details="Film load failure"/>;
         if (loading) return <LoadingIndicator/>;
 
-        const films = compose(this.applySortType, this.applySearchValue)(data)
+        const films = compose(this.applySortType, this.applySearchValue)(data);
 
         return <FilmList films={films}/>;
     }
@@ -101,9 +86,7 @@ class FilmsPage extends React.Component {
 }
 
 const mapStateToProps = ({films}) => {
-    return {
-        films,
-    }
+    return {films}
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
