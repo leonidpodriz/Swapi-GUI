@@ -5,25 +5,23 @@ import {FilmsPage} from "../pages";
 import Header from "../header";
 
 
-class App extends React.Component {
-    render() {
-        return (
-            <Router>
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-md-9 col-lg-5">
-                            <Header/>
+const App = () => {
+    return (
+        <Router>
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-9 col-lg-5">
+                        <Header/>
 
-                            <Route path="/" exact>
-                                <FilmsPage/>
-                            </Route>
-                            <Route path={document.location.pathname + ":entity/:id"} component={DetailsList}/>
-                        </div>
+                        <Route path="/" exact>
+                            <FilmsPage/>
+                        </Route>
+                        <Route path={document.location.pathname + ":entity/:id"} component={DetailsList}/>
                     </div>
                 </div>
-            </Router>
-        )
-    }
+            </div>
+        </Router>
+    )
 }
 
 export default App;
