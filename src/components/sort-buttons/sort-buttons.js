@@ -7,7 +7,7 @@ const SortButtons = ({callback, sortTypes, active}) => {
                 sortTypes.map((type) => {
                     const className = "btn btn-outline-secondary " + (type === active ? "active" : "");
                     return (
-                        <button onClick={() => callback(type)} type="button" data-target="title" className={className}>{type}</button>
+                        <button onClick={() => callback(type)} key={type} type="button" data-target="title" className={className}>{type}</button>
                     )
                 })
             }
