@@ -1,8 +1,7 @@
 import React from "react";
 
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
-import DetailsList from "../details-list";
-import {FilmsPage} from "../pages";
+import {FilmsPage, DetailsPage} from "../pages";
 import Header from "../header";
 import Container from "../container";
 
@@ -13,7 +12,7 @@ const App = () => {
             <Container>
                 <Header/>
                 <Route path="/" exact component={FilmsPage} />
-                <Route path={"/:entity/:id"} component={DetailsList} />
+                <Route path={"/:entity/:id"} component={DetailsPage} />
                 <Route render={() => <Redirect to="/" />}/>
             </Container>
         </Router>
