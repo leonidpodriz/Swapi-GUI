@@ -6,6 +6,7 @@ import LoadingIndicator from "../loading-indicator";
 import ErrorBanner from "../error-banner";
 import EntityListItem from "./entity-list-item";
 import EntityLink from "./entity-link";
+import {compose} from "redux";
 
 
 const StringListItem = ({key_, value}) => {
@@ -96,4 +97,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-export default withSwapiService()(connect(mapStateToProps, mapDispatchToProps)(DetailsList));
+export default compose(
+    withSwapiService(),
+    connect(mapStateToProps, mapDispatchToProps)
+)(DetailsList);
