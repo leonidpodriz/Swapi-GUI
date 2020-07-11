@@ -18,10 +18,13 @@ import {SwapiService} from "./services";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
+const swapiService = new SwapiService()
+
+
 ReactDOM.render(
     <Provider store={store}>
         <ErrorBoundary>
-            <SwapiServiceProvider value={new SwapiService()}>
+            <SwapiServiceProvider value={swapiService}>
                 <App/>
             </SwapiServiceProvider>
         </ErrorBoundary>
