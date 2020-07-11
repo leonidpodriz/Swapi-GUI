@@ -1,12 +1,21 @@
+// React
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// Components
 import App from "./components/app";
+import {SwapiServiceProvider} from "./components/films-service-context/films-service-context";
+import ErrorBoundary from "./components/error-boundary";
+
+// Redux
 import {Provider} from "react-redux";
 import store from "./store";
-import {SwapiServiceProvider} from "./components/films-service-context/films-service-context";
+
+// Services
 import {SwapiService} from "./services";
+
+// CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ErrorBoundary from "./components/error-boundary";
 
 
 ReactDOM.render(
