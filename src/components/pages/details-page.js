@@ -1,12 +1,16 @@
 import React from "react";
+
 import {connect} from "react-redux"
+import {compose} from "redux";
 import {fetchEntity} from "../../actions";
-import withSwapiService from "../hoc/with-swapi-service";
+
+
 import LoadingIndicator from "../loading-indicator";
 import ErrorBanner from "../error-banner";
-import EntityListItem from "./entity-list-item";
-import EntityLink from "./entity-link";
-import {compose} from "redux";
+import EntityListItem from "../entity-list/entity-list-item";
+import EntityLink from "../entity-list/entity-link";
+
+import withSwapiService from "../hoc/with-swapi-service";
 
 
 const StringListItem = ({key_, value}) => {
@@ -32,7 +36,7 @@ const keyNameProcess = (keyName) => {
 }
 
 
-class DetailsList extends React.Component {
+class DetailsPage extends React.Component {
     componentDidMount() {
         this.props.getItems();
     }
@@ -100,4 +104,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default compose(
     withSwapiService(),
     connect(mapStateToProps, mapDispatchToProps)
-)(DetailsList);
+)(DetailsPage);

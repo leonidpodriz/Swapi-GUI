@@ -1,8 +1,13 @@
 import React from "react";
-import withSwapiService from "../hoc/with-swapi-service";
+
 import {connect} from "react-redux";
+import {compose} from "redux";
 import {fetchEntity} from "../../actions";
+
 import EntityLink from "./entity-link";
+
+import withSwapiService from "../hoc/with-swapi-service";
+
 
 class EntityListItem extends React.Component {
     getDataByParams = () => {
@@ -48,4 +53,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-export default withSwapiService()(connect(mapStateToProps, mapDispatchToProps)(EntityListItem))
+export default compose(
+    withSwapiService(),
+    connect(mapStateToProps, mapDispatchToProps),
+)(EntityListItem)
