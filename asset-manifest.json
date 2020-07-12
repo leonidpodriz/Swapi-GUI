@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Swapi-GUI/static/css/main.137d6c0b.chunk.css",
-    "main.js": "/Swapi-GUI/static/js/main.533b34b9.chunk.js",
-    "main.js.map": "/Swapi-GUI/static/js/main.533b34b9.chunk.js.map",
+    "main.js": "/Swapi-GUI/static/js/main.6ac63422.chunk.js",
+    "main.js.map": "/Swapi-GUI/static/js/main.6ac63422.chunk.js.map",
     "runtime-main.js": "/Swapi-GUI/static/js/runtime-main.7d6f3d0a.js",
     "runtime-main.js.map": "/Swapi-GUI/static/js/runtime-main.7d6f3d0a.js.map",
     "static/css/2.af3c1da9.chunk.css": "/Swapi-GUI/static/css/2.af3c1da9.chunk.css",
     "static/js/2.14b5a5ab.chunk.js": "/Swapi-GUI/static/js/2.14b5a5ab.chunk.js",
     "static/js/2.14b5a5ab.chunk.js.map": "/Swapi-GUI/static/js/2.14b5a5ab.chunk.js.map",
     "index.html": "/Swapi-GUI/index.html",
-    "precache-manifest.fdd862ab0bf906aac1a913dafe43a2bb.js": "/Swapi-GUI/precache-manifest.fdd862ab0bf906aac1a913dafe43a2bb.js",
+    "precache-manifest.189251ecc673f5eb6996d93ff2914a64.js": "/Swapi-GUI/precache-manifest.189251ecc673f5eb6996d93ff2914a64.js",
     "service-worker.js": "/Swapi-GUI/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/Swapi-GUI/static/css/2.af3c1da9.chunk.css.map",
     "static/css/main.137d6c0b.chunk.css.map": "/Swapi-GUI/static/css/main.137d6c0b.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.af3c1da9.chunk.css",
     "static/js/2.14b5a5ab.chunk.js",
     "static/css/main.137d6c0b.chunk.css",
-    "static/js/main.533b34b9.chunk.js"
+    "static/js/main.6ac63422.chunk.js"
   ]
 }
