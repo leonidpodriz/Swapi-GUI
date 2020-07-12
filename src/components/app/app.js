@@ -2,19 +2,19 @@ import React from "react";
 
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import {FilmsPage, DetailsPage} from "../pages";
-import Header from "../header";
 import Container from "../container";
+import Header from "../header";
 
-const baseUrl = process.env.NODE_ENV === 'development' ? "/" : "/Swapi-GUI/";
+const baseUrl = process.env.NODE_ENV !== 'development' ? "/" : "/Swapi-GUI";
 
 const App = () => {
     return (
-        <Router>
+        <Router basename={baseUrl}>
             <Container>
                 <Header/>
                 <Switch>
-                    <Route path={baseUrl} exact component={FilmsPage} />
-                    <Route path={baseUrl + ":entity/:id"} component={DetailsPage} />
+                    <Route path={"/"} exact component={FilmsPage} />
+                    <Route path={"/:entity/:id"} component={DetailsPage} />
                     <Route render={() => <Redirect to="/" />}/>
                 </Switch>
             </Container>
