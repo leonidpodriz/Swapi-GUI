@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5b5ac834a30128e914c83fad96ce034c",
+    "revision": "b2bf9e9ca64a5f178bb8720d4ddad79e",
     "url": "/Swapi-GUI/index.html"
   },
   {
