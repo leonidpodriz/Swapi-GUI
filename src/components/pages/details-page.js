@@ -25,9 +25,9 @@ const renderEntityListItems = (value) => {
     return <EntityListItem key={id} entity={entity} id={id}/>
 }
 
-const renderEntity = (value) => {
+const renderEntity = (value, title) => {
     const {entity, id} = value;
-    return <EntityLink entity={entity} id={id}/>
+    return <EntityLink entity={entity} id={id} text={title}/>
 }
 
 const keyNameProcess = (keyName) => {
@@ -58,8 +58,8 @@ class DetailsPage extends React.Component {
             );
         }
         if (typeof value === 'object'  && value.type === 'entity') {
-            console.log(value)
-            value = renderEntity(value);
+            const title = `${value.entity} entity with id ${value.id}`;
+            value = renderEntity(value, title);
         }
 
         return <StringListItem value={value} key={key} key_={key}/>;
