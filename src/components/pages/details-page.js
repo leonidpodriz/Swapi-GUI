@@ -4,6 +4,7 @@ import {connect} from "react-redux"
 import {compose} from "redux";
 import {fetchEntity} from "../../actions";
 
+
 import LoadingIndicator from "../loading-indicator";
 import ErrorBanner from "../error-banner";
 import EntityListItem from "../entity-list/entity-list-item";
@@ -57,6 +58,7 @@ class DetailsPage extends React.Component {
             );
         }
         if (typeof value === 'object'  && value.type === 'entity') {
+            console.log(value)
             value = renderEntity(value);
         }
 
@@ -84,7 +86,6 @@ const mapStateToProps = (state, ownProps) => {
     const entityName = [entity, id].join("_");
     const entityObj = state.entities[entityName] ? state.entities[entityName] : {};
     const {loading=true, hasError=false, data=[]} = entityObj;
-
     return {
         loading,
         items: data,
