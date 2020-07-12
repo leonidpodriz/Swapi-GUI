@@ -5,6 +5,7 @@ import {FilmsPage, DetailsPage} from "../pages";
 import Header from "../header";
 import Container from "../container";
 
+const baseUrl = process.env.NODE_ENV === 'development' ? "/" : "/Swapi-GUI/";
 
 const App = () => {
     return (
@@ -12,8 +13,8 @@ const App = () => {
             <Container>
                 <Header/>
                 <Switch>
-                    <Route path="/" exact component={FilmsPage} />
-                    <Route path={"/:entity/:id"} component={DetailsPage} />
+                    <Route path={baseUrl} exact component={FilmsPage} />
+                    <Route path={baseUrl + ":entity/:id"} component={DetailsPage} />
                     <Route render={() => <Redirect to="/" />}/>
                 </Switch>
             </Container>
