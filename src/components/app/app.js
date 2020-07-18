@@ -5,7 +5,7 @@ import {FilmsPage, DetailsPage} from "../pages";
 import Container from "../container";
 import Header from "../header";
 
-const baseUrl = process.env.NODE_ENV === 'development' ? "/" : "/Swapi-GUI";
+const baseUrl = process.env.NODE_ENV === 'development' ? "/" : "/swapi-gui";
 
 const App = () => {
     return (
