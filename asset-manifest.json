@@ -1,26 +1,24 @@
 {
   "files": {
-    "main.css": "/swapi-gui/static/css/main.137d6c0b.chunk.css",
-    "main.js": "/swapi-gui/static/js/main.c631b920.chunk.js",
-    "main.js.map": "/swapi-gui/static/js/main.c631b920.chunk.js.map",
-    "runtime-main.js": "/swapi-gui/static/js/runtime-main.fa510e3a.js",
-    "runtime-main.js.map": "/swapi-gui/static/js/runtime-main.fa510e3a.js.map",
-    "static/css/2.af3c1da9.chunk.css": "/swapi-gui/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.14b5a5ab.chunk.js": "/swapi-gui/static/js/2.14b5a5ab.chunk.js",
-    "static/js/2.14b5a5ab.chunk.js.map": "/swapi-gui/static/js/2.14b5a5ab.chunk.js.map",
+    "main.css": "/swapi-gui/static/css/main.b912388d.chunk.css",
+    "main.js": "/swapi-gui/static/js/main.8058c593.chunk.js",
+    "main.js.map": "/swapi-gui/static/js/main.8058c593.chunk.js.map",
+    "runtime-main.js": "/swapi-gui/static/js/runtime-main.b16eefac.js",
+    "runtime-main.js.map": "/swapi-gui/static/js/runtime-main.b16eefac.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/swapi-gui/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.2cb3f67b.chunk.js": "/swapi-gui/static/js/2.2cb3f67b.chunk.js",
+    "static/js/2.2cb3f67b.chunk.js.map": "/swapi-gui/static/js/2.2cb3f67b.chunk.js.map",
     "index.html": "/swapi-gui/index.html",
-    "precache-manifest.1a6c92f810c7ccf83509f59b88d2e12b.js": "/swapi-gui/precache-manifest.1a6c92f810c7ccf83509f59b88d2e12b.js",
-    "service-worker.js": "/swapi-gui/service-worker.js",
-    "static/css/2.af3c1da9.chunk.css.map": "/swapi-gui/static/css/2.af3c1da9.chunk.css.map",
-    "static/css/main.137d6c0b.chunk.css.map": "/swapi-gui/static/css/main.137d6c0b.chunk.css.map",
-    "static/js/2.14b5a5ab.chunk.js.LICENSE.txt": "/swapi-gui/static/js/2.14b5a5ab.chunk.js.LICENSE.txt",
-    "static/media/error-banner.png": "/swapi-gui/static/media/error-banner.e76c8d59.png"
+    "static/css/2.4c97ca4f.chunk.css.map": "/swapi-gui/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.b912388d.chunk.css.map": "/swapi-gui/static/css/main.b912388d.chunk.css.map",
+    "static/js/2.2cb3f67b.chunk.js.LICENSE.txt": "/swapi-gui/static/js/2.2cb3f67b.chunk.js.LICENSE.txt",
+    "static/media/error-banner.10e573c3.png": "/swapi-gui/static/media/error-banner.10e573c3.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.fa510e3a.js",
-    "static/css/2.af3c1da9.chunk.css",
-    "static/js/2.14b5a5ab.chunk.js",
-    "static/css/main.137d6c0b.chunk.css",
-    "static/js/main.c631b920.chunk.js"
+    "static/js/runtime-main.b16eefac.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.2cb3f67b.chunk.js",
+    "static/css/main.b912388d.chunk.css",
+    "static/js/main.8058c593.chunk.js"
   ]
 }

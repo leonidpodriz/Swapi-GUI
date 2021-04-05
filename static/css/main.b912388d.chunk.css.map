@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/header/header.css"],"names":[],"mappings":"AAAA,QACI,2BACJ,CAEA,WACI,cACJ","file":"main.b912388d.chunk.css","sourcesContent":["#header {\r\n    border-radius: 0 0 30px 30px;\r\n}\r\n\r\n#header h1 {\r\n    font-size: 28px;\r\n}"]}
