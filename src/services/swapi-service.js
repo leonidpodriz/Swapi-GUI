@@ -1,7 +1,5 @@
 export default class SwapiService {
-    // BASE_URL = "https://swapi.dev/api/";
-    // Self hosted swapi mirror: (Original service has invalid certificate: https://github.com/phalt/swapi/issues/152)
-    BASE_URL = "https://www.swapi-m.leonidpodriz.com/api/";
+    BASE_URL = "https://swapi.dev/api/";
 
     getData = async (url) => {
         return fetch(url)
